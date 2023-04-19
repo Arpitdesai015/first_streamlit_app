@@ -18,9 +18,6 @@ my_fruit_list = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.co
 my_fruit_list = my_fruit_list.set_index('Fruit')
 # Let's put a pick list here so they can pick the fruit they want to include 
 fruits_selected = streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index), ['Avocado','Strawberries'])
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
-
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 # Display the table on the page.
 
@@ -38,8 +35,6 @@ try:
       streamlit.dataframe(fruityvice_normalized)
 except URLError as e:
   streamlit.error()
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
-
 streamlit.write('The user entered ', fruit_choice)
 
 
@@ -74,6 +69,5 @@ streamlit.dataframe(my_data_rows)
 
 add_my_fruit = streamlit.text_input('What fruit would you like to add?','Jackfruit')
 streamlit.write('Thanks for adding', add_my_fruit)
-my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 my_cur.execute("insert into fruit_load_list values ('from streamlit')")
 
